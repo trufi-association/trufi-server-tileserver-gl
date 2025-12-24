@@ -1,0 +1,12 @@
+# Generated data directory (created by start.sh)
+data/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
