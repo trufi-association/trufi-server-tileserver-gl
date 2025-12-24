@@ -21,7 +21,7 @@ A self-hosted vector tile server using [TileServer GL](https://github.com/maptil
 
 ```bash
 # Clone the repository
-git clone <repository-url>
+git clone https://github.com/trufi-association/trufi-server-tileserver-gl
 cd trufi-server-tileserver-gl
 
 # Initialize with bbox and mbtiles file
