@@ -1,5 +1,7 @@
 # Trufi TileServer GL
 
+Part of the [Trufi Association](https://www.trufi-association.org/) ecosystem for public transit apps.
+
 A self-hosted vector tile server using [TileServer GL](https://github.com/maptiler/tileserver-gl) for serving OpenMapTiles-compatible vector tiles.
 
 ## Features
@@ -86,19 +88,17 @@ To use with an external Nginx proxy, see `nginx.conf` for the reverse proxy conf
 
 ## Generating MBTiles
 
-You can generate your own `.mbtiles` files using [OpenMapTiles](https://github.com/openmaptiles/openmaptiles):
+The easiest way to generate `.mbtiles` files is using [trufi-mbtiles-generator](https://github.com/trufi-association/trufi-mbtiles-generator):
 
 ```bash
-# Clone OpenMapTiles
-git clone https://github.com/openmaptiles/openmaptiles.git
-cd openmaptiles
+# Clone trufi-mbtiles-generator
+git clone https://github.com/trufi-association/trufi-mbtiles-generator.git
+cd trufi-mbtiles-generator
 
-# Generate tiles for your area
-./quickstart.sh <area-name>
-
-# Copy the generated mbtiles
-cp data/tiles.mbtiles /path/to/trufi-server-tileserver-gl/data/
+# Follow the instructions in the repository to generate tiles for your city
 ```
+
+Alternatively, you can use [OpenMapTiles](https://github.com/openmaptiles/openmaptiles) directly.
 
 ## Troubleshooting
 
@@ -118,6 +118,12 @@ docker-compose exec trufi-tileserver-gl cat /data/config.json
 ```bash
 docker-compose logs -f trufi-tileserver-gl
 ```
+
+## Related Projects
+
+- [trufi-mbtiles-generator](https://github.com/trufi-association/trufi-mbtiles-generator) - Generate MBTiles for your city
+- [Trufi Core](https://github.com/trufi-association/trufi-core) - Flutter app for public transit
+- [Trufi Association](https://www.trufi-association.org/) - Making public transit accessible
 
 ## License
 
