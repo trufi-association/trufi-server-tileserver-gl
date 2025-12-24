@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Trufi TileServer GL - Init Script
-# Usage: ./init.sh <bbox> <mbtiles>
-# Example: ./init.sh "29.9,-2.1,30.3,-1.8" /path/to/kigali.mbtiles
+# Usage: ./init.sh BBOX=<bbox> <mbtiles>
+# Example: ./init.sh BBOX=29.9,-2.1,30.3,-1.8 /path/to/kigali.mbtiles
 
 set -e
 
@@ -21,18 +21,26 @@ SRC_DIR="$SCRIPT_DIR/src"
 if [ -z "$1" ] || [ -z "$2" ]; then
     echo -e "${RED}Error: Missing arguments${NC}"
     echo ""
-    echo "Usage: $0 <bbox> <mbtiles>"
+    echo "Usage: $0 BBOX=<bbox> <mbtiles>"
     echo ""
     echo "Arguments:"
-    echo "  <bbox>     Bounding box: minLon,minLat,maxLon,maxLat"
-    echo "  <mbtiles>  Path to your .mbtiles file"
+    echo "  BBOX=<bbox>  Bounding box: BBOX=minLon,minLat,maxLon,maxLat"
+    echo "  <mbtiles>    Path to your .mbtiles file"
     echo ""
     echo "Example:"
-    echo "  $0 \"29.979526,-2.079821,30.27987,-1.779581\" /path/to/kigali.mbtiles"
+    echo "  $0 BBOX=29.979526,-2.079821,30.27987,-1.779581 /path/to/kigali.mbtiles"
     exit 1
 fi
 
-BOUNDS="$1"
+# Parse BBOX= format
+BBOX_ARG="$1"
+if [[ "$BBOX_ARG" != BBOX=* ]]; then
+    echo -e "${RED}Error: First argument must start with BBOX=${NC}"
+    echo "Example: BBOX=29.979526,-2.079821,30.27987,-1.779581"
+    exit 1
+fi
+
+BOUNDS="${BBOX_ARG#BBOX=}"
 MBTILES_PATH="$2"
 MBTILES_FILENAME=$(basename "$MBTILES_PATH")
 

@@ -12,3 +12,4 @@ services:
 networks:
   default:
     name: trufi-server
+    external: true

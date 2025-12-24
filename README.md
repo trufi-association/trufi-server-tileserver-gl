@@ -23,7 +23,7 @@ git clone <repository-url>
 cd trufi-server-tileserver-gl
 
 # Initialize with bbox and mbtiles file
-./init.sh "29.979526,-2.079821,30.27987,-1.779581" /path/to/kigali.mbtiles
+./init.sh BBOX=29.979526,-2.079821,30.27987,-1.779581 /path/to/kigali.mbtiles
 
 # Start the server
 docker compose up -d
