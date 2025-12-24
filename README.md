@@ -7,7 +7,7 @@ A self-hosted vector tile server using [TileServer GL](https://github.com/maptil
 ## Features
 
 - Serves vector tiles from `.mbtiles` files
-- Multiple map styles included (OSM Bright, MapTiler Basic, OSM Liberty)
+- Multiple map styles included (OSM Bright, MapTiler Basic, OSM Liberty, Positron, Dark Matter, Fiord Color)
 - Docker-based deployment
 - Compatible with Mapbox GL JS, MapLibre GL JS, and other vector tile clients
 
@@ -51,9 +51,14 @@ Once running, TileServer GL provides:
 
 ### Available Styles
 
-- `osm-bright` - OSM Bright style
-- `maptiler-basic` - MapTiler Basic style
-- `osm-liberty` - OSM Liberty style
+| Style ID | Name | Description |
+|----------|------|-------------|
+| `osm-bright` | OSM Bright | General purpose bright style with detailed OSM data |
+| `maptiler-basic` | MapTiler Basic | Clean, minimal basemap |
+| `osm-liberty` | OSM Liberty | Free open-source Mapbox-like style |
+| `positron` | Positron | Light, elegant style ideal for data visualization |
+| `dark-matter` | Dark Matter | Dark theme, great for night mode or dashboards |
+| `fiord-color` | Fiord Color | Dark blue elegant style |
 
 ## Project Structure
 
@@ -124,6 +129,50 @@ docker-compose logs -f trufi-tileserver-gl
 - [trufi-mbtiles-generator](https://github.com/trufi-association/trufi-mbtiles-generator) - Generate MBTiles for your city
 - [Trufi Core](https://github.com/trufi-association/trufi-core) - Flutter app for public transit
 - [Trufi Association](https://www.trufi-association.org/) - Making public transit accessible
+
+## Licenses and Attribution
+
+This project bundles map styles and fonts from various open-source projects. When using these resources, you must comply with their respective licenses and provide proper attribution.
+
+### Required Map Attribution
+
+When displaying maps using these styles, you **must** include the following attribution in the map corner (for web) or near the image (for print):
+
+```
+© OpenMapTiles © OpenStreetMap contributors
+```
+
+With links to:
+- https://openmaptiles.org/
+- https://www.openstreetmap.org/copyright
+
+### Map Styles Licenses
+
+| Style | License | Source |
+|-------|---------|--------|
+| OSM Bright | BSD-3-Clause (code) + CC-BY 4.0 (design) | [openmaptiles/osm-bright-gl-style](https://github.com/openmaptiles/osm-bright-gl-style) |
+| MapTiler Basic | BSD-3-Clause (code) + CC-BY 4.0 (design) | [openmaptiles/maptiler-basic-gl-style](https://github.com/openmaptiles/maptiler-basic-gl-style) |
+| OSM Liberty | BSD-3-Clause (code) + CC-BY 3.0/4.0 (design) | [maputnik/osm-liberty](https://github.com/maputnik/osm-liberty) |
+| Positron | BSD-3-Clause (code) + CC-BY 4.0 (design) | [openmaptiles/positron-gl-style](https://github.com/openmaptiles/positron-gl-style) |
+| Dark Matter | BSD-3-Clause (code) + CC-BY 4.0 (design) | [openmaptiles/dark-matter-gl-style](https://github.com/openmaptiles/dark-matter-gl-style) |
+| Fiord Color | BSD-3-Clause (code) + CC-BY 4.0 (design) | [openmaptiles/fiord-color-gl-style](https://github.com/openmaptiles/fiord-color-gl-style) |
+
+### Font Licenses
+
+| Font Family | License | Source |
+|-------------|---------|--------|
+| Noto Sans | SIL Open Font License 1.1 | [Google Noto Fonts](https://fonts.google.com/noto) |
+| Open Sans | SIL Open Font License 1.1 | [Google Fonts](https://fonts.google.com/specimen/Open+Sans) |
+| Roboto | Apache License 2.0 / OFL | [Google Fonts](https://fonts.google.com/specimen/Roboto) |
+| Metropolis | SIL Open Font License 1.1 | [Chris Simpson](https://github.com/njugunagathere/Metropolis) |
+
+Font PBF files obtained from [openmaptiles/fonts](https://github.com/openmaptiles/fonts).
+
+### Summary
+
+- **Styles**: Free to use for commercial and non-commercial purposes with attribution
+- **Fonts**: Free to use, embed, and redistribute (OFL/Apache licenses)
+- **Data**: OpenStreetMap data is © OpenStreetMap contributors, licensed under ODbL
 
 ## License
 

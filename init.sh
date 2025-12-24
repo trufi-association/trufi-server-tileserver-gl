@@ -109,8 +109,30 @@ cat > "$DATA_DIR/config.json" << EOF
       }
     },
     "osm-liberty": {
-      "style": "osm-liberty.json",
+      "style": "osm-liberty/style.json",
       "tilejson": {
+        "type": "overlay",
+        "bounds": [$MIN_LON, $MIN_LAT, $MAX_LON, $MAX_LAT]
+      }
+    },
+    "positron": {
+      "style": "positron/style.json",
+      "tilejson": {
+        "type": "overlay",
+        "bounds": [$MIN_LON, $MIN_LAT, $MAX_LON, $MAX_LAT]
+      }
+    },
+    "dark-matter": {
+      "style": "dark-matter/style.json",
+      "tilejson": {
+        "type": "overlay",
+        "bounds": [$MIN_LON, $MIN_LAT, $MAX_LON, $MAX_LAT]
+      }
+    },
+    "fiord-color": {
+      "style": "fiord-color/style.json",
+      "tilejson": {
+        "type": "overlay",
         "bounds": [$MIN_LON, $MIN_LAT, $MAX_LON, $MAX_LAT]
       }
     }
