@@ -124,6 +124,53 @@ docker-compose exec trufi-tileserver-gl cat /data/config.json
 docker-compose logs -f trufi-tileserver-gl
 ```
 
+## Integration with trufi-server
+
+This service is designed to work with [trufi-server](https://github.com/trufi-association/trufi-server).
+
+### 1. Add to docker-compose
+
+Add this to your trufi-server `docker-compose.yml` or include it as a separate service:
+
+```yaml
+services:
+  tileserver:
+    build:
+      context: ./trufi-server-tileserver-gl
+    volumes:
+      - ./trufi-server-tileserver-gl/data:/data
+    restart: unless-stopped
+    networks:
+      - trufi-server
+```
+
+### 2. Configure nginx
+
+Add a server block to expose TileServer GL on your domain. Example for `tiles.example.com`:
+
+```nginx
+server {
+    listen 80;
+    server_name tiles.example.com;
+
+    location / {
+        proxy_pass http://tileserver:8080;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
+```
+
+### 3. Test the integration
+
+```bash
+curl 'https://tiles.example.com/health'
+```
+
+SSL is handled automatically by trufi-server.
+
 ## Related Projects
 
 - [trufi-mbtiles-generator](https://github.com/trufi-association/trufi-mbtiles-generator) - Generate MBTiles for your city
