@@ -1,5 +1,8 @@
-# Generated data directory (created by start.sh)
+# Generated data directory (created by init.sh)
 data/
+
+# Downloaded mbtiles files
+*.mbtiles
 
 # OS files
 .DS_Store
@@ -10,3 +13,6 @@ Thumbs.db
 .vscode/
 *.swp
 *.swo
+
+# Logs
+*.log
