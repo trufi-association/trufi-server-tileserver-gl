@@ -152,6 +152,9 @@ setup_data() {
 
     print_step "Copying $MBTILES_FILENAME..."
     cp "$MBTILES_PATH" "$DATA_DIR/$MBTILES_FILENAME"
+
+    print_step "Setting permissions for Docker..."
+    chmod -R 755 "$DATA_DIR"
 }
 
 # ============================================
