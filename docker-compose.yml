@@ -8,12 +8,6 @@ services:
       - ./data:/data
     command: tileserver-gl -p 5656 --public_url ${PUBLIC_URL:-http://localhost:5656}
     restart: unless-stopped
-    healthcheck:
-      test: ["CMD-SHELL", "curl -f http://localhost:5656/health || exit 1"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 30s
 
 networks:
   default:
