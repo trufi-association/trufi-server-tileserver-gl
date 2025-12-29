@@ -2,5 +2,5 @@
   "name": "tileserver",
   "description": "Vector tile server for serving map tiles and styles",
   "container": "trufi-tileserver-gl",
-  "port": 5656
+  "port": 80
 }
