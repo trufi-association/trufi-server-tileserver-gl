@@ -2,8 +2,8 @@ services:
   trufi-tileserver-gl:
     image: maptiler/tileserver-gl:latest
     container_name: trufi-tileserver-gl
-    ports:
-      - "5656:5656"
+    # ports:
+    #   - "5656:5656"
     volumes:
       - ./data:/data
     command: tileserver-gl -p 5656
