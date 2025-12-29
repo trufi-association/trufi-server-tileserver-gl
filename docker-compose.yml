@@ -6,7 +6,7 @@ services:
     #   - "5656:5656"
     volumes:
       - ./data:/data
-    command: tileserver-gl -p 5656
+    command: tileserver-gl -p 5656 --public_url /
     restart: unless-stopped
 
 networks:
